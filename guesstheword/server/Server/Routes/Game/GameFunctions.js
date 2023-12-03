@@ -8,7 +8,7 @@ const GameManger = require("../../Services/Game/GameManger");
 //       );
 //       res.status(200).send(JSON.stringify(returnedStatistics));
 //       res.end();
-//     } catch (error) {
+//     } catch (error) {sss
 //       errorHandler(error, res);
 //     }
 //   }
@@ -17,10 +17,11 @@ const GameManger = require("../../Services/Game/GameManger");
       try {
         const { userWord } = req.params;
         const feedbackGuess = await GameManger.checkTheUserWord(userWord);
-          res.status(200).send(JSON.stringify(feedbackGuess));
+          res.status(200).send(JSON.stringify(feedbackGuess)); 
           res.end();
         } catch (error) {
-          errorHandler(error, res);
+        //   errorHandler(error, res);
+        throw error;
         }
   }
 
