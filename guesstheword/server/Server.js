@@ -2,7 +2,8 @@ const express = require('express');
 const bodyParser = require("body-parser");
 const game = require("./Server/Routes/Game/Game");
 const app = express();
-const port = 3000;
+const cors = require("cors");
+const port = 3002;
 
 app.use(express.json());
 app.use(cors());
