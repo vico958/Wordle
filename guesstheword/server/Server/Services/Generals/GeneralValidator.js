@@ -10,4 +10,4 @@ function isInputBlank(str) {
     return (!str || isWhiteSpacesOnlyRegex.test(str));
 }
 
-module.exports ={isNotNumber, isInputBlank}
+module.exports ={isInputBlank}
