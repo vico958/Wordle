@@ -3,7 +3,7 @@ class GameClient{
         this.url = "http://localhost:3002";
     }
 
-    async checkIfWordIsGood(userWord){
+    async checkIfWordIsGood(userWord ){
         try{
             const response = await fetch(`${this.url}/game/${userWord}`,{
                 method:"GET",
