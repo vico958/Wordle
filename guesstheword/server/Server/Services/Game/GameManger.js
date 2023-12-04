@@ -1,10 +1,20 @@
 const {isInputBlank} = require('../Generals/GeneralValidator');
-const GameDatabaseManger = require('./GameDatabaseManger');
+const GameApiRequestManger = require('./GameApiRequestManger');
 
 class GameManger {
     constructor(){
-        this.gameDatabase = new GameDatabaseManger();
-        this.wordOfTheDay = this.gameDatabase.getWordOfTheDay();
+        this.gameApiRequestManger = new GameApiRequestManger();
+        this.getWordOfTheDayConstructorUse().then(word => {
+            this.wordOfTheDay = word[0];
+        })
+    }
+    async getWordOfTheDayConstructorUse(){
+        try {
+            const wordOfTheDay = await this.gameApiRequestManger.getWordOfTheDay();
+            return wordOfTheDay;
+          } catch (error) {
+            throw error;
+          }
     }
     async getWordOfTheDay(){
         return this.wordOfTheDay;
