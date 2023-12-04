@@ -4,15 +4,20 @@ class GameClient{
     }
 
     async checkIfWordIsGood(userWord){
-        const response = await fetch(`${this.url}/game/${userWord}`,{
-            method:"GET",
-            headers: {
-                "Content-Type": "application/json"
-              },
-        });
-        console.log(await response.json())
-        return;
+        try{
+            const response = await fetch(`${this.url}/game/${userWord}`,{
+                method:"GET",
+                headers: {
+                    "Content-Type": "application/json"
+                  },
+            });
+            const responseJson = await response.json();
+            console.log(responseJson);
+            return responseJson;
+        }catch(error){
+            console.log(error.message);
+        }
     }
 }
 const gameClient = new GameClient();
-gameClient.checkIfWordIsGood("viko");
+gameClient.checkIfWordIsGood("vikoo");
